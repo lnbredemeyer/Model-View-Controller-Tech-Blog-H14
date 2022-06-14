@@ -52,4 +52,4 @@ SO THAT I can publish articles, blog posts, and my thoughts and opinions
 ## Links:
 * To view on GitHub, please click: https://lnbredemeyer.github.io/Model-View-Controller-Tech-Blog-H14/
 * To view the repo, please click: https://github.com/lnbredemeyer/Model-View-Controller-Tech-Blog-H14
-* To view on Heroku, please click: 
+* To view on Heroku, please click: https://tech-blog-h14.herokuapp.com
