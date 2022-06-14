@@ -28,7 +28,7 @@ router.get('/', (req, res) => {
         },
       ]
     })
-      .then(postData => res.json(postData))
+      .then(dbPostData => res.json(dbPostData))
       .catch(err => {
         console.log(err);
         res.status(500).json(err);
@@ -61,12 +61,12 @@ router.get('/', (req, res) => {
         }
       ]
     })
-      .then(postData=> {
-        if (!postData) {
+      .then(dbPostData=> {
+        if (!dbPostData) {
           res.status(404).json({ message: 'No post found with this ID' });
           return;
         }
-        res.json(postData);
+        res.json(dbPostData);
       })
       .catch(err => {
         console.log(err);
