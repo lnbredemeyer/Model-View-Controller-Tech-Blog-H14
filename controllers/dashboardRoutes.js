@@ -23,8 +23,8 @@ router.get('/', withAuth, (req, res) => {
       },
     ],
   })
-    .then((postData) => {
-      const posts = postData.map((post) => post.get({ plain: true }));
+    .then((dbPostData) => {
+      const posts = dbPostData.map((post) => post.get({ plain: true }));
       res.render('dashboard', {
         posts,
         logged_in: true,
@@ -57,13 +57,13 @@ router.get('/edit/:id', withAuth, (req, res) => {
       },
     ],
   })
-    .then((postData) => {
-      if (!postData) {
+    .then((dbPostData) => {
+      if (!dbPostData) {
         res.status(404).json({ message: 'No post found with this ID' });
         return;
       }
 
-      const post = postData.get({ plain: true });
+      const post = dbPostData.get({ plain: true });
       console.log('sending ' + req.session.username);
       res.render('edit-post', {
         post,
