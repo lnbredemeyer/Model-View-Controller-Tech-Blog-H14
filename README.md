@@ -47,7 +47,7 @@ SO THAT I can publish articles, blog posts, and my thoughts and opinions
 * THEN I am able to view comments but I am prompted to log in again before I can add, update, or delete comments
 
 ## Screenshots:
-![alt tag]( "screenshot")
+![alt tag](https://user-images.githubusercontent.com/99215212/173931783-9adea250-c44e-4542-9e71-661fbee72df9.png "screenshot")
 
 ## Links:
 * To view on GitHub, please click: https://lnbredemeyer.github.io/Model-View-Controller-Tech-Blog-H14/
