@@ -12,7 +12,8 @@ router.get('/', withAuth, (req, res) => {
       'id', 
       'title', 
       'post_content', 
-      'created_at'],
+      'created_at'
+    ],
     include: [
       {
         model: Comment,
@@ -41,16 +42,15 @@ router.get('/', withAuth, (req, res) => {
       res.status(500).json(err);
     });
 });
+
 router.get('/edit/:id', withAuth, (req, res) => {
-  Post.findOne({
-    where: {
-      id: req.params.id,
-    },
+  Post.findByPk({
     attributes: [
       'id', 
       'title', 
       'post_content', 
-      'created_at'],
+      'created_at'
+    ],
     include: [
       {
         model: User,

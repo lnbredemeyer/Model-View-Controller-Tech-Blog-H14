@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
           'id',
           'title',
           'post_content',
-          'user_id'
+          'created_at'
         ],
       order: [['created_at', 'DESC']],
       include: [
@@ -35,7 +35,7 @@ router.get('/', (req, res) => {
       });
   });
 
-  router.get('/:id', (req, res) => {
+  router.get('/:id', withAuth, (req, res) => {
     Post.findOne({
       where: {
         id: req.params.id
@@ -43,8 +43,8 @@ router.get('/', (req, res) => {
       attributes: [
         'id',
         'title',
-        'created_at',
-        'post_content'
+        'post_content',
+        'created_at'
       ],
       include: [
         {
@@ -80,7 +80,7 @@ router.post('/', withAuth, (req, res) => {
       post_content: req.body.post_content,
       user_id: req.session.user_id
     })
-      .then(postData => res.json(postData))
+      .then(dbPostData => res.json(dbPostData))
       .catch(err => {
         console.log(err);
         res.status(500).json(err);
@@ -97,12 +97,12 @@ router.put('/:id', withAuth, (req, res) => {
           id: req.params.id
         }
       })
-      .then(postData => {
-        if (!postData) {
+      .then(dbPostData => {
+        if (!dbPostData) {
           res.status(404).json({ message: 'No post found with this ID' });
           return;
         }
-        res.json(postData);
+        res.json(dbPostData);
       })
       .catch(err => {
         console.log(err);
@@ -116,12 +116,12 @@ router.put('/:id', withAuth, (req, res) => {
         id: req.params.id
       }
     })
-      .then(postData => {
-        if (!postData) {
+      .then(dbPostData => {
+        if (!dbPostData) {
           res.status(404).json({ message: 'No post found with this ID' });
           return;
         }
-        res.json(postData);
+        res.json(dbPostData);
       })
       .catch(err => {
         console.log(err);
