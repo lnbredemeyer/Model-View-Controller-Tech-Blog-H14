@@ -4,7 +4,8 @@
   "description": "A cool tech blog",
   "main": "server.js",
   "engines": {
-    "node": "6.11.1"
+    "node": "6.11.1",
+    "npm": "1.4.29"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
